@@ -1,0 +1,16 @@
+GET http://localhost:5000/brands?offset=3
+###
+GET http://localhost:5000/brands/middle
+###
+GET http://localhost:5000/brands/multiple?names=Samsung,LG
+###
+DELETE http://localhost:5000/brands?id=2,4
+###
+PUT http://localhost:5000/brands
+Content-Type: application/json
+
+{
+  "id": 2,
+  "title": "LG",
+  "description": "Home appliances and displays"
+}

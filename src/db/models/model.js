@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Models.belongsTo(models.Brand, {
         foreignKey: 'brand_id',
+        onDelete: 'CASCADE'
       });
       Models.hasMany(models.Item, {
         foreignKey: 'model_id',
