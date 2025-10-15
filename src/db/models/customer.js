@@ -5,7 +5,11 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Customer extends Model {
     static associate(models) {
-      // define association here
+      Customer.hasMany(models.Order, {
+        foreignKey: 'customer_id', 
+        onDelete: 'CASCADE', 
+        onUpdate: 'CASCADE'
+      })
     }
   }
   Customer.init({

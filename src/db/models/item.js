@@ -1,24 +1,33 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Item extends Model {
     static associate(models) {
-      // define association here
+      Item.belongsTo(models.Models, {
+        foreignKey: 'model_id',
+      });
+      Item.belongsTo(models.ItemType, {
+        foreignKey: 'type_id',
+      });
+      Item.belongsTo(models.Store, {
+        foreignKey: 'store_id',
+      });
     }
   }
-  Item.init({
-    type_id: DataTypes.INTEGER,
-    model_id: DataTypes.INTEGER,
-    price: DataTypes.NUMERIC,
-    store_id: DataTypes.INTEGER,
-    amount: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Item',
-    tableName:'items',
-    underscored: true,
-  });
+  Item.init(
+    {
+      type_id: DataTypes.INTEGER,
+      model_id: DataTypes.INTEGER,
+      price: DataTypes.NUMERIC,
+      store_id: DataTypes.INTEGER,
+      amount: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: 'Item',
+      tableName: 'items',
+      underscored: true,
+    }
+  );
   return Item;
 };

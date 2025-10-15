@@ -5,7 +5,11 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class ItemCategory extends Model {
     static associate(models) {
-      // define association here
+      ItemCategory.hasMany(models.ItemType, {
+        foreignKey:'category_id', 
+        onDelete: 'SET NULL', 
+        onUpdate: 'CASCADE'
+      })
     }
   }
   ItemCategory.init({
