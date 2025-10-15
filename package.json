@@ -8,7 +8,9 @@
     "dbcreate": "npx sequelize db:create",
     "dbdrop": "npx sequelize db:drop",
     "migall": "npx sequelize db:migrate",
-    "migun": "npx sequelize db:migrate:undo:all"
+    "migun": "npx sequelize db:migrate:undo:all", 
+    "seedall": "npx sequelize db:seed:all ", 
+    "seedun": "npx sequelize db:seed:undo:all"
   },
   "author": "katya",
   "license": "ISC",
