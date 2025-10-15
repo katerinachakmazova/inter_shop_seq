@@ -27,4 +27,13 @@ const syncSomeTable = async(model) => {
     console.log('Can not sync the table: ', error.message)
   }
 }
-// syncSomeTable(db.Item)
+// syncSomeTable(db.Order)
+const syncModels = async () => {
+  try {
+    await db.sequelize.sync({ alter: true });
+    console.log('sync is succesfull')
+  } catch (error) {
+    console.log(`can not sync table:`, error.message);
+  }
+};
+// syncModels()
