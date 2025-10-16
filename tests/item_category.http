@@ -1,0 +1,15 @@
+GET http://localhost:5000/item_categories?offset=1
+###
+GET http://localhost:5000/item_categories/middle
+###
+GET http://localhost:5000/item_categories/multiple?names=Electronics,Plumbing
+###
+DELETE http://localhost:5000/item_categories?id=2,4
+###
+PUT http://localhost:5000/item_categories
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "Computers"
+}

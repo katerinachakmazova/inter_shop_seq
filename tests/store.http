@@ -1,0 +1,15 @@
+GET http://localhost:5000/stores?offset=1
+###
+GET http://localhost:5000/stores/middle
+###
+GET http://localhost:5000/stores/multiple?names=TechMarket%20Kyiv
+###
+DELETE http://localhost:5000/stores?id=2,4
+###
+PUT http://localhost:5000/stores
+Content-Type: application/json
+
+{
+  "id": 2,
+  "title": "Kyiv"
+}

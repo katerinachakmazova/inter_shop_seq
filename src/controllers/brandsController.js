@@ -82,7 +82,6 @@ class BrandController {
           },
         },
       });
-
       if (deletedCount > 0) {
         res.json(`${deletedCount} brand(s) deleted successfully.`);
       } else {

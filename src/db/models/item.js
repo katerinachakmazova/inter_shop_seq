@@ -9,9 +9,11 @@ module.exports = (sequelize, DataTypes) => {
       });
       Item.belongsTo(models.ItemType, {
         foreignKey: 'type_id',
+        onDelete:'SET NULL'
       });
       Item.belongsTo(models.Store, {
         foreignKey: 'store_id',
+        onDelete: 'CASCADE'
       });
       Item.belongsToMany(models.Order, {
         through:'items_orders'
