@@ -1,0 +1,16 @@
+GET http://localhost:5000/orders?offset=3
+###
+GET http://localhost:5000/orders/middle
+###
+GET http://localhost:5000/orders/multiple?names=1011,1012,1014
+###
+DELETE http://localhost:5000/orders?id=6,7
+###
+PUT http://localhost:5000/orders
+Content-Type: application/json
+
+{
+  "id": 11,
+  "code":1111,
+  "paid":false
+}
