@@ -1,0 +1,16 @@
+GET http://localhost:5000/item_types?offset=3
+###
+GET http://localhost:5000/item_types/middle
+###
+GET http://localhost:5000/item_types/multiple?names=Smartphones,Laptops
+###
+DELETE http://localhost:5000/item_types?id=2,4
+###
+PUT http://localhost:5000/item_types
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "AirFryers",
+  "description": "Home appliances for kitchen"
+}

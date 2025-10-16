@@ -1,0 +1,15 @@
+GET http://localhost:5000/models?offset=7
+###
+GET http://localhost:5000/models/middle
+###
+GET http://localhost:5000/models/multiple?names=Asus%20ROG%20Strix,Bosch%20DrillMax
+###
+DELETE http://localhost:5000/models?id=2,4
+###
+PUT http://localhost:5000/models
+Content-Type: application/json
+
+{
+  "id": 7,
+  "title": "Iphone 17"
+}
