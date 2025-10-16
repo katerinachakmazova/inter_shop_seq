@@ -1,0 +1,16 @@
+GET http://localhost:5000/customers?offset=3
+###
+GET http://localhost:5000/customers/middle
+###
+GET http://localhost:5000/customers/multiple?names=Olivia%20Martinez
+###
+DELETE http://localhost:5000/customers?id=2,4
+###
+PUT http://localhost:5000/customers
+Content-Type: application/json
+
+{
+  "id": 2,
+  "full_name": "Lilia",
+  "password": "qwerty"
+}
