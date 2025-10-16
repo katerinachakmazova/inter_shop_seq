@@ -75,17 +75,13 @@ class ItemController {
     try {
       const body = req.body;
 
-      const updatedItem = await Item.update(
-        body,
-        {
-          where: {
-            id: body.id,
-          },
-          returning: '*'
-        }
-      );
-      if (updatedItem[0] > 0)
-        res.json(...updatedItem[1]);
+      const updatedItem = await Item.update(body, {
+        where: {
+          id: body.id,
+        },
+        returning: '*',
+      });
+      if (updatedItem[0] > 0) res.json(...updatedItem[1]);
       else next(createError(404, 'No items found with given id'));
     } catch (error) {
       next(error);

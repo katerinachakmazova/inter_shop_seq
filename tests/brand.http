@@ -1,4 +1,4 @@
-GET http://localhost:5000/brands?offset=3
+GET http://localhost:5000/brands?offset=2
 ###
 GET http://localhost:5000/brands/middle
 ###

@@ -38,7 +38,9 @@ class CustomerController {
     try {
       const { names } = req.query;
       if (!names) {
-        return next(createError(400, 'You must provide customers names in query'));
+        return next(
+          createError(400, 'You must provide customers names in query')
+        );
       }
       const customerNames = names.split(',').map((name) => name.trim());
       const customers = await Customer.findAll({
@@ -93,25 +95,21 @@ class CustomerController {
   }
 
   async updateCustomers(req, res, next) {
-      try {
-        const body = req.body;
-  
-        const updatedCustomer = await Customer.update(
-          body,
-          {
-            where: {
-              id: body.id,
-            },
-            returning: '*'
-          }
-        );
-        if (updatedCustomer[0] > 0)
-          res.json(...updatedCustomer[1]);
-        else next(createError(404, 'No customers found with given id'));
-      } catch (error) {
-        next(error);
-      }
+    try {
+      const body = req.body;
+
+      const updatedCustomer = await Customer.update(body, {
+        where: {
+          id: body.id,
+        },
+        returning: '*',
+      });
+      if (updatedCustomer[0] > 0) res.json(...updatedCustomer[1]);
+      else next(createError(404, 'No customers found with given id'));
+    } catch (error) {
+      next(error);
     }
+  }
 }
 
 module.exports = new CustomerController();

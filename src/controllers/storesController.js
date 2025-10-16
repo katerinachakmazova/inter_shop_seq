@@ -93,25 +93,21 @@ class StoreController {
   }
 
   async updateStores(req, res, next) {
-      try {
-        const body = req.body;
-  
-        const updatedStore = await Store.update(
-          body,
-          {
-            where: {
-              id: body.id,
-            },
-            returning: '*'
-          }
-        );
-        if (updatedStore[0] > 0)
-          res.json(...updatedStore[1]);
-        else next(createError(404, 'No stores found with given id'));
-      } catch (error) {
-        next(error);
-      }
+    try {
+      const body = req.body;
+
+      const updatedStore = await Store.update(body, {
+        where: {
+          id: body.id,
+        },
+        returning: '*',
+      });
+      if (updatedStore[0] > 0) res.json(...updatedStore[1]);
+      else next(createError(404, 'No stores found with given id'));
+    } catch (error) {
+      next(error);
     }
+  }
 }
 
 module.exports = new StoreController();

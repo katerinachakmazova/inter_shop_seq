@@ -96,17 +96,13 @@ class OrderController {
     try {
       const body = req.body;
 
-      const updatedOrder = await Order.update(
-        body,
-        {
-          where: {
-            id: body.id,
-          },
-          returning: '*'
-        }
-      );
-      if (updatedOrder[0] > 0)
-        res.json(...updatedOrder[1]);
+      const updatedOrder = await Order.update(body, {
+        where: {
+          id: body.id,
+        },
+        returning: '*',
+      });
+      if (updatedOrder[0] > 0) res.json(...updatedOrder[1]);
       else next(createError(404, 'No orders found with given id'));
     } catch (error) {
       next(error);

@@ -38,7 +38,9 @@ class ItemCategoryController {
     try {
       const { names } = req.query;
       if (!names) {
-        return next(createError(400, 'You must provide item category names in query'));
+        return next(
+          createError(400, 'You must provide item category names in query')
+        );
       }
       const itemCategoryNames = names.split(',').map((name) => name.trim());
       const itemCategories = await ItemCategory.findAll({
@@ -96,17 +98,13 @@ class ItemCategoryController {
     try {
       const body = req.body;
 
-      const updatedItemCategory = await ItemCategory.update(
-        body,
-        {
-          where: {
-            id: body.id,
-          },
-          returning: '*'
-        }
-      );
-      if (updatedItemCategory[0] > 0)
-        res.json(...updatedItemCategory[1]);
+      const updatedItemCategory = await ItemCategory.update(body, {
+        where: {
+          id: body.id,
+        },
+        returning: '*',
+      });
+      if (updatedItemCategory[0] > 0) res.json(...updatedItemCategory[1]);
       else next(createError(404, 'No item categories found with given id'));
     } catch (error) {
       next(error);

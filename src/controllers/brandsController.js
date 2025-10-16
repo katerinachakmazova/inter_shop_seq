@@ -96,17 +96,13 @@ class BrandController {
     try {
       const body = req.body;
 
-      const updatedBrand = await Brand.update(
-        body,
-        {
-          where: {
-            id: body.id,
-          },
-          returning: '*'
-        }
-      );
-      if (updatedBrand[0] > 0)
-        res.json(...updatedBrand[1]);
+      const updatedBrand = await Brand.update(body, {
+        where: {
+          id: body.id,
+        },
+        returning: '*',
+      });
+      if (updatedBrand[0] > 0) res.json(...updatedBrand[1]);
       else next(createError(404, 'No brands found with given id'));
     } catch (error) {
       next(error);

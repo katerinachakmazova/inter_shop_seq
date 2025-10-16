@@ -38,7 +38,9 @@ class ItemTypeController {
     try {
       const { names } = req.query;
       if (!names) {
-        return next(createError(400, 'You must provide item type names in query'));
+        return next(
+          createError(400, 'You must provide item type names in query')
+        );
       }
       const itemTypeNames = names.split(',').map((name) => name.trim());
       const itemTypes = await ItemType.findAll({
@@ -96,17 +98,13 @@ class ItemTypeController {
     try {
       const body = req.body;
 
-      const updatedItemType = await ItemType.update(
-        body,
-        {
-          where: {
-            id: body.id,
-          },
-          returning: '*'
-        }
-      );
-      if (updatedItemType[0] > 0)
-        res.json(...updatedItemType[1]);
+      const updatedItemType = await ItemType.update(body, {
+        where: {
+          id: body.id,
+        },
+        returning: '*',
+      });
+      if (updatedItemType[0] > 0) res.json(...updatedItemType[1]);
       else next(createError(404, 'No item types found with given id'));
     } catch (error) {
       next(error);

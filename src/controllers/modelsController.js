@@ -96,17 +96,13 @@ class ModelController {
     try {
       const body = req.body;
 
-      const updatedModel = await Models.update(
-        body,
-        {
-          where: {
-            id: body.id,
-          },
-          returning: '*'
-        }
-      );
-      if (updatedModel[0] > 0)
-        res.json(...updatedModel[1]);
+      const updatedModel = await Models.update(body, {
+        where: {
+          id: body.id,
+        },
+        returning: '*',
+      });
+      if (updatedModel[0] > 0) res.json(...updatedModel[1]);
       else next(createError(404, 'No models found with given id'));
     } catch (error) {
       next(error);
