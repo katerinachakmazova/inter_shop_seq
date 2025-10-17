@@ -6,5 +6,6 @@
   "20251015115710-create-order.js",
   "20251015120003-create-item-type.js",
   "20251015120314-create-model.js",
-  "20251015120922-create-item.js"
+  "20251015120922-create-item.js",
+  "20251017163722-create-items-orders.js"
 ]

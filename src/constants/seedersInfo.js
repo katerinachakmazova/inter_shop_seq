@@ -645,99 +645,75 @@ module.exports = {
   ],
 
   items_orders: [
-    { item_id: 1, order_id: 1, created_at: new Date(), updated_at: new Date() },
+    { item_id: 1, order_id: 1 },
     {
       item_id: 15,
-      order_id: 1,
-      created_at: new Date(),
-      updated_at: new Date(),
+      order_id: 1
     },
 
-    { item_id: 3, order_id: 2, created_at: new Date(), updated_at: new Date() },
-    { item_id: 4, order_id: 2, created_at: new Date(), updated_at: new Date() },
+    { item_id: 3, order_id: 2 },
+    { item_id: 4, order_id: 2 },
 
     {
       item_id: 12,
       order_id: 3,
-      created_at: new Date(),
-      updated_at: new Date(),
     },
 
-    { item_id: 5, order_id: 4, created_at: new Date(), updated_at: new Date() },
+    { item_id: 5, order_id: 4 },
 
-    { item_id: 2, order_id: 5, created_at: new Date(), updated_at: new Date() },
+    { item_id: 2, order_id: 5},
     {
       item_id: 11,
       order_id: 5,
-      created_at: new Date(),
-      updated_at: new Date(),
     },
 
     {
       item_id: 10,
       order_id: 6,
-      created_at: new Date(),
-      updated_at: new Date(),
     },
 
-    { item_id: 8, order_id: 7, created_at: new Date(), updated_at: new Date() },
-    { item_id: 7, order_id: 7, created_at: new Date(), updated_at: new Date() },
+    { item_id: 8, order_id: 7},
+    { item_id: 7, order_id: 7},
 
-    { item_id: 1, order_id: 8, created_at: new Date(), updated_at: new Date() },
+    { item_id: 1, order_id: 8},
 
     {
       item_id: 13,
       order_id: 9,
-      created_at: new Date(),
-      updated_at: new Date(),
     },
 
     {
       item_id: 3,
       order_id: 10,
-      created_at: new Date(),
-      updated_at: new Date(),
     },
     {
       item_id: 4,
       order_id: 10,
-      created_at: new Date(),
-      updated_at: new Date(),
     },
 
     {
       item_id: 6,
       order_id: 11,
-      created_at: new Date(),
-      updated_at: new Date(),
     },
 
     {
       item_id: 5,
       order_id: 12,
-      created_at: new Date(),
-      updated_at: new Date(),
     },
 
     {
       item_id: 9,
       order_id: 13,
-      created_at: new Date(),
-      updated_at: new Date(),
     },
 
     {
       item_id: 2,
       order_id: 14,
-      created_at: new Date(),
-      updated_at: new Date(),
     },
 
     {
       item_id: 10,
       order_id: 15,
-      created_at: new Date(),
-      updated_at: new Date(),
     },
   ],
 };
