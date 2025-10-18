@@ -33,6 +33,19 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'Customer',
       tableName: 'customers',
+      // Hashing seed passwords through model
+      // hooks: {
+      //   beforeBulkCreate: async (customers) => {
+      //     await Promise.all(
+      //       customers.map(async (customer) => {
+      //         return {
+      //           ...customer,
+      //           password: await bcrypt.hash(customer.password, 10),
+      //         };
+      //       })
+      //     );
+      //   },
+      // },
       underscored: true,
     }
   );
