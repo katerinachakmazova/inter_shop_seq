@@ -1,6 +1,6 @@
 const createError = require('http-errors');
 // ===============================================
-const { Brand } = require('../db/models');
+const { Brand, sequelize } = require('../db/models');
 const { Op } = require('sequelize');
 
 class BrandController {
@@ -105,6 +105,36 @@ class BrandController {
       if (updatedBrand[0] > 0) res.json(...updatedBrand[1]);
       else next(createError(404, 'No brands found with given id'));
     } catch (error) {
+      next(error);
+    }
+  }
+  async updateImageBrands(req, res, next) {
+    const t = await sequelize.transaction();
+    try {
+      const {
+        params: { id },
+        file: {filename}
+      } = req;
+      const [count, [updatedBrand]] = await Brand.update(
+        { logo: filename },
+        {
+          where: {
+            id,
+          },
+          raw: true,
+          fields: ['logo'],
+          returning: ['id', 'title'],
+          transaction: t,
+        }
+      );
+      if (count > 0) {
+        res.status(200).json(updatedBrand);
+      } else {
+        next(createError(404, 'Brand not found'));
+      }
+      await t.commit();
+    } catch (error) {
+      await t.rollback();
       next(error);
     }
   }

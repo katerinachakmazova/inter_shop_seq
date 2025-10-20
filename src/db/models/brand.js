@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false, 
       unique: true,
     },
+    logo:DataTypes.TEXT,
     description: DataTypes.TEXT
   }, {
     sequelize,

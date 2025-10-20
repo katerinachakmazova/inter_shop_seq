@@ -2,6 +2,7 @@ const { Router } = require('express');
 // ===================================
 const brandController = require('../controllers/brandsController');
 const { paginate } = require('../middleware/pagination.mw');
+const { uploadImages } = require('../middleware/upload.mw');
 
 const router = new Router();
 router
@@ -11,5 +12,8 @@ router
   .delete(brandController.deleteBrands);
 router.get('/middle', brandController.getBrandsFromMiddle);
 router.get('/multiple', brandController.getSeveralBrands);
+router
+  .route('/:id/images')
+  .patch(uploadImages.single('logo'), brandController.updateImageBrands);
 
 module.exports = router;

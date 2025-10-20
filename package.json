@@ -8,8 +8,8 @@
     "dbcreate": "npx sequelize db:create",
     "dbdrop": "npx sequelize db:drop",
     "migall": "npx sequelize db:migrate",
-    "migun": "npx sequelize db:migrate:undo:all", 
-    "seedall": "npx sequelize db:seed:all ", 
+    "migun": "npx sequelize db:migrate:undo:all",
+    "seedall": "npx sequelize db:seed:all ",
     "seedun": "npx sequelize db:seed:undo:all"
   },
   "author": "katya",
@@ -21,6 +21,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "http-errors": "^2.0.0",
+    "multer": "^2.0.2",
     "pg": "^8.16.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.7",
